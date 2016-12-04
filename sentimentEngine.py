@@ -9,15 +9,16 @@ import operator
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 
-documents=[]
+# documents=[]
 
-with open("documents.pickle","rb") as fid:
-  documents=pickle.load(fid)
+# with open("documents.pickle","rb") as fid:
+#   documents=pickle.load(fid)
 
 test_sen_all = ["I am in rvce where are you going"]
-vectorizer = TfidfVectorizer(min_df=2,max_df=0.8,sublinear_tf=True,use_idf=True)
-twitter_complete = [d[1] for d in documents]
-vectorizer.fit_transform(twitter_complete)
+
+
+open_file = open("vectorizer.pickle", "rb")
+vectorizer = pickle.load(open_file)
 
 
 def most_common(L):
